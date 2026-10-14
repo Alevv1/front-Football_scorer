@@ -1,0 +1,28 @@
+.pendiente {
+  padding: var(--espacio-6);
+  border: 2px dashed var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: var(--color-superficie);
+}
+
+.pendiente__dueno {
+  margin: 0 0 var(--espacio-4);
+  color: var(--color-texto-suave);
+}
+
+.pendiente__subtitulo {
+  font-size: var(--texto-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-texto-suave);
+}
+
+.pendiente__endpoints {
+  margin: 0;
+  padding-left: var(--espacio-6);
+}
+
+.pendiente__endpoints code {
+  font-size: var(--texto-sm);
+  overflow-wrap: anywhere;
+}
