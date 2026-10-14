@@ -1,0 +1,45 @@
+:root {
+  --color-primario: #0b6e4f;
+  --color-primario-hover: #08573e;
+  --color-primario-suave: #e3f2ec;
+  --color-acento: #f5b700;
+
+  --color-fondo: #f6f7f9;
+  --color-superficie: #ffffff;
+  --color-borde: #dde1e6;
+  --color-texto: #1c2127;
+  --color-texto-suave: #5c6670;
+
+  --color-exito: #1e8e3e;
+  --color-exito-suave: #e6f4ea;
+  --color-error: #c62828;
+  --color-error-suave: #fdecea;
+  --color-aviso: #b26a00;
+  --color-aviso-suave: #fff4e0;
+  --color-info: #1565c0;
+  --color-info-suave: #e8f0fb;
+
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --texto-xs: 0.75rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+  --texto-lg: 1.25rem;
+  --texto-xl: 1.5rem;
+  --texto-2xl: 2rem;
+
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-6: 1.5rem;
+  --espacio-8: 2rem;
+  --espacio-12: 3rem;
+
+  --radio: 8px;
+  --radio-lg: 12px;
+  --sombra: 0 1px 3px rgb(0 0 0 / 0.08), 0 1px 2px rgb(0 0 0 / 0.04);
+  --sombra-lg: 0 8px 24px rgb(0 0 0 / 0.12);
+
+  --ancho-maximo: 1200px;
+  --alto-navbar: 64px;
+}
