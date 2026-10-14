@@ -1,0 +1,22 @@
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacio-12) var(--espacio-4);
+}
+
+.vacio__icono {
+  font-size: 3rem;
+  margin-bottom: var(--espacio-3);
+}
+
+.vacio__titulo {
+  margin-bottom: var(--espacio-2);
+}
+
+.vacio__mensaje {
+  margin: 0 0 var(--espacio-4);
+  color: var(--color-texto-suave);
+  max-width: 40ch;
+}
