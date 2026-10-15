@@ -1,0 +1,35 @@
+.catalogo__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espacio-2);
+}
+
+.catalogo__cantidad {
+  margin: 0 0 var(--espacio-4);
+  font-size: var(--texto-sm);
+  color: var(--color-texto-suave);
+}
+
+.catalogo__cuerpo {
+  display: grid;
+  gap: var(--espacio-4);
+}
+
+.catalogo__resultados {
+  min-width: 0;
+  transition: opacity 0.15s;
+}
+
+.catalogo__resultados--actualizando {
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .catalogo__cuerpo {
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+    gap: var(--espacio-6);
+  }
+}
