@@ -1,0 +1,307 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camiseta Boca Titular",
+    "descripcion": "Camiseta oficial de Boca Juniors",
+    "precio": 95000,
+    "stock": 10,
+    "imagenUrl": "/img/productos/camiseta-boca-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 1,
+      "nombre": "Boca Juniors",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/boca-juniors.svg"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "Camiseta River Titular",
+    "descripcion": "Camiseta oficial de River Plate",
+    "precio": 95000,
+    "stock": 10,
+    "imagenUrl": "/img/productos/camiseta-river-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 2,
+      "nombre": "River Plate",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/river-plate.svg"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Camiseta Argentina Titular",
+    "descripcion": "Camiseta de la Selección Argentina",
+    "precio": 110000,
+    "stock": 15,
+    "imagenUrl": "/img/productos/camiseta-argentina-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 3,
+      "nombre": "Argentina",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/argentina.svg"
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Camiseta Barcelona Titular",
+    "descripcion": "Camiseta oficial del Barcelona",
+    "precio": 120000,
+    "stock": 8,
+    "imagenUrl": "/img/productos/camiseta-barcelona-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 4,
+      "nombre": "Barcelona",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/barcelona.svg"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Camiseta Real Madrid Titular",
+    "descripcion": "Camiseta oficial del Real Madrid",
+    "precio": 120000,
+    "stock": 8,
+    "imagenUrl": "/img/productos/camiseta-real-madrid-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 5,
+      "nombre": "Real Madrid",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/real-madrid.svg"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Botines Predator",
+    "descripcion": "Botines para fútbol",
+    "precio": 155000,
+    "stock": 7,
+    "imagenUrl": "/img/productos/botines-predator.svg",
+    "activo": true,
+    "club": null
+  },
+  {
+    "id": 7,
+    "nombre": "Botines Mercurial",
+    "descripcion": "Botines de velocidad",
+    "precio": 170000,
+    "stock": 6,
+    "imagenUrl": "/img/productos/botines-mercurial.svg",
+    "activo": true,
+    "club": null
+  },
+  {
+    "id": 8,
+    "nombre": "Pelota Argentina",
+    "descripcion": "Pelota inspirada en la Selección Argentina",
+    "precio": 48000,
+    "stock": 20,
+    "imagenUrl": "/img/productos/pelota-argentina.svg",
+    "activo": true,
+    "club": {
+      "id": 3,
+      "nombre": "Argentina",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/argentina.svg"
+    }
+  },
+  {
+    "id": 9,
+    "nombre": "Pelota Champions",
+    "descripcion": "Pelota profesional",
+    "precio": 55000,
+    "stock": 15,
+    "imagenUrl": "/img/productos/pelota-champions.svg",
+    "activo": true,
+    "club": null
+  },
+  {
+    "id": 10,
+    "nombre": "Gorra Boca Juniors",
+    "descripcion": "Gorra oficial",
+    "precio": 32000,
+    "stock": 12,
+    "imagenUrl": "/img/productos/gorra-boca-juniors.svg",
+    "activo": true,
+    "club": {
+      "id": 1,
+      "nombre": "Boca Juniors",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/boca-juniors.svg"
+    }
+  },
+  {
+    "id": 11,
+    "nombre": "Gorra River Plate",
+    "descripcion": "Gorra oficial",
+    "precio": 32000,
+    "stock": 12,
+    "imagenUrl": "/img/productos/gorra-river-plate.svg",
+    "activo": true,
+    "club": {
+      "id": 2,
+      "nombre": "River Plate",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/river-plate.svg"
+    }
+  },
+  {
+    "id": 12,
+    "nombre": "Bufanda Barcelona",
+    "descripcion": "Bufanda oficial",
+    "precio": 28000,
+    "stock": 10,
+    "imagenUrl": "/img/productos/bufanda-barcelona.svg",
+    "activo": true,
+    "club": {
+      "id": 4,
+      "nombre": "Barcelona",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/barcelona.svg"
+    }
+  },
+  {
+    "id": 13,
+    "nombre": "Medias Real Madrid",
+    "descripcion": "Medias deportivas",
+    "precio": 22000,
+    "stock": 16,
+    "imagenUrl": "/img/productos/medias-real-madrid.svg",
+    "activo": true,
+    "club": {
+      "id": 5,
+      "nombre": "Real Madrid",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/real-madrid.svg"
+    }
+  },
+  {
+    "id": 14,
+    "nombre": "Short Argentina",
+    "descripcion": "Short de la Selección Argentina",
+    "precio": 58000,
+    "stock": 10,
+    "imagenUrl": "/img/productos/short-argentina.svg",
+    "activo": true,
+    "club": {
+      "id": 3,
+      "nombre": "Argentina",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/argentina.svg"
+    }
+  },
+  {
+    "id": 15,
+    "nombre": "Mochila Fútbol",
+    "descripcion": "Mochila deportiva",
+    "precio": 65000,
+    "stock": 9,
+    "imagenUrl": "/img/productos/mochila-futbol.svg",
+    "activo": true,
+    "club": null
+  },
+  {
+    "id": 16,
+    "nombre": "Camiseta Boca Suplente",
+    "descripcion": "Camiseta alternativa de Boca Juniors",
+    "precio": 98000,
+    "stock": 0,
+    "imagenUrl": "/img/productos/camiseta-boca-suplente.svg",
+    "activo": true,
+    "club": {
+      "id": 1,
+      "nombre": "Boca Juniors",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/boca-juniors.svg"
+    }
+  },
+  {
+    "id": 17,
+    "nombre": "Camiseta River Suplente",
+    "descripcion": "Camiseta alternativa de River Plate",
+    "precio": 98000,
+    "stock": 5,
+    "imagenUrl": "/img/productos/camiseta-river-suplente.svg",
+    "activo": true,
+    "club": {
+      "id": 2,
+      "nombre": "River Plate",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/river-plate.svg"
+    }
+  },
+  {
+    "id": 18,
+    "nombre": "Camiseta Barcelona Suplente",
+    "descripcion": "Camiseta alternativa del Barcelona",
+    "precio": 125000,
+    "stock": 0,
+    "imagenUrl": "/img/productos/camiseta-barcelona-suplente.svg",
+    "activo": true,
+    "club": {
+      "id": 4,
+      "nombre": "Barcelona",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/barcelona.svg"
+    }
+  },
+  {
+    "id": 19,
+    "nombre": "Short Boca Juniors",
+    "descripcion": "Short oficial de Boca Juniors",
+    "precio": 52000,
+    "stock": 8,
+    "imagenUrl": "/img/productos/short-boca-juniors.svg",
+    "activo": true,
+    "club": {
+      "id": 1,
+      "nombre": "Boca Juniors",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/boca-juniors.svg"
+    }
+  },
+  {
+    "id": 20,
+    "nombre": "Pelota Real Madrid",
+    "descripcion": "Pelota con los colores del Real Madrid",
+    "precio": 50000,
+    "stock": 11,
+    "imagenUrl": "/img/productos/pelota-real-madrid.svg",
+    "activo": true,
+    "club": {
+      "id": 5,
+      "nombre": "Real Madrid",
+      "pais": "España",
+      "escudoUrl": "/img/escudos/real-madrid.svg"
+    }
+  },
+  {
+    "id": 21,
+    "nombre": "Camiseta Argentina Retro 1986",
+    "descripcion": "Réplica de la camiseta del Mundial 1986",
+    "precio": 135000,
+    "stock": 3,
+    "imagenUrl": "/img/productos/camiseta-argentina-retro-1986.svg",
+    "activo": false,
+    "club": {
+      "id": 3,
+      "nombre": "Argentina",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/argentina.svg"
+    }
+  },
+  {
+    "id": 22,
+    "nombre": "Botines Copa Clásicos",
+    "descripcion": "Botines de cuero de corte clásico",
+    "precio": 140000,
+    "stock": 4,
+    "imagenUrl": "/img/productos/botines-copa-clasicos.svg",
+    "activo": false,
+    "club": null
+  }
+]

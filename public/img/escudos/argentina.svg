@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img">
+<defs><clipPath id="e"><path d="M10,10 H110 V70 Q110,114 60,132 Q10,114 10,70 Z"/></clipPath></defs>
+<g clip-path="url(#e)"><rect x="0" y="0" width="20" height="140" fill="#75aadb"/><rect x="20" y="0" width="20" height="140" fill="#ffffff"/><rect x="40" y="0" width="20" height="140" fill="#75aadb"/><rect x="60" y="0" width="20" height="140" fill="#ffffff"/><rect x="80" y="0" width="20" height="140" fill="#75aadb"/><rect x="100" y="0" width="20" height="140" fill="#ffffff"/></g>
+<path d="M10,10 H110 V70 Q110,114 60,132 Q10,114 10,70 Z" fill="none" stroke="#1c2127" stroke-opacity="0.35" stroke-width="4" stroke-linejoin="round"/>
+<text x="60" y="78" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="26" fill="#1c2127" stroke="#1c2127" stroke-opacity="0.25" stroke-width="1">AFA</text>
+</svg>

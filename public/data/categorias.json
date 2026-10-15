@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camisetas",
+    "descripcion": "Camisetas de clubes y selecciones"
+  },
+  {
+    "id": 2,
+    "nombre": "Botines",
+    "descripcion": "Botines de fútbol"
+  },
+  {
+    "id": 3,
+    "nombre": "Pelotas",
+    "descripcion": "Pelotas de fútbol"
+  },
+  {
+    "id": 4,
+    "nombre": "Accesorios",
+    "descripcion": "Accesorios de fútbol"
+  }
+]

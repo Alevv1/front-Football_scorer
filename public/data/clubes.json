@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Boca Juniors",
+    "pais": "Argentina",
+    "escudoUrl": "/img/escudos/boca-juniors.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "River Plate",
+    "pais": "Argentina",
+    "escudoUrl": "/img/escudos/river-plate.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Argentina",
+    "pais": "Argentina",
+    "escudoUrl": "/img/escudos/argentina.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "Barcelona",
+    "pais": "España",
+    "escudoUrl": "/img/escudos/barcelona.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Real Madrid",
+    "pais": "España",
+    "escudoUrl": "/img/escudos/real-madrid.svg"
+  }
+]
