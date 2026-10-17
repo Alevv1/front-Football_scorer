@@ -6,14 +6,14 @@ import ErrorMessage from '../components/ui/ErrorMessage';
 import FormField from '../components/ui/FormField';
 import { useAuth } from '../context/useAuth';
 import { login, obtenerUsuarioLogueado } from '../services/usuariosService';
+import { sinErrores, validarEmail } from '../utils/validaciones';
 import './Acceso.css';
 
 function validar({ email, password }) {
-  const errores = {};
-  if (email.trim() === '') errores.email = 'Ingresá tu email';
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) errores.email = 'El email no es válido';
-  if (password === '') errores.password = 'Ingresá tu contraseña';
-  return errores;
+  return {
+    email: validarEmail(email),
+    password: password === '' ? 'Ingresá tu contraseña' : undefined,
+  };
 }
 
 export default function LoginPage() {
@@ -21,8 +21,10 @@ export default function LoginPage() {
   const location = useLocation();
   // PrivateRoute y AdminRoute dejan en el state la página que se quiso abrir.
   const destino = location.state?.desde ?? '/';
+  // Lo deja RegistroPage si la cuenta se creó pero no se pudo entrar automáticamente.
+  const emailRegistrado = location.state?.emailRegistrado;
 
-  const [valores, setValores] = useState({ email: '', password: '' });
+  const [valores, setValores] = useState({ email: emailRegistrado ?? '', password: '' });
   const [errores, setErrores] = useState({});
   const [errorServidor, setErrorServidor] = useState(null);
   const [enviando, setEnviando] = useState(false);
@@ -40,7 +42,7 @@ export default function LoginPage() {
     evento.preventDefault();
     const nuevosErrores = validar(valores);
     setErrores(nuevosErrores);
-    if (Object.keys(nuevosErrores).length > 0) return;
+    if (!sinErrores(nuevosErrores)) return;
 
     setEnviando(true);
     setErrorServidor(null);
@@ -58,6 +60,12 @@ export default function LoginPage() {
     <section className="acceso">
       <h1 className="acceso__titulo">Ingresar</h1>
       <p className="acceso__subtitulo">Entrá con tu cuenta para comprar y ver tus órdenes.</p>
+
+      {emailRegistrado && !errorServidor && (
+        <Alert tipo="exito" titulo="¡Tu cuenta está lista!">
+          Ingresá con tu email y contraseña.
+        </Alert>
+      )}
 
       {/* El 401 del login es "credenciales incorrectas", no "tenés que iniciar sesión" como en ErrorMessage. */}
       {errorServidor?.status === 401 ? (

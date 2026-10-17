@@ -18,6 +18,17 @@
   color: var(--color-texto-suave);
 }
 
+.acceso__fila {
+  display: grid;
+  gap: 0 var(--espacio-4);
+}
+
+@media (min-width: 480px) {
+  .acceso__fila {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .acceso__pie {
   margin: var(--espacio-6) 0 0;
   text-align: center;
