@@ -1,0 +1,75 @@
+.cuenta {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cuenta__tarjeta {
+  padding: var(--espacio-6);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: var(--color-superficie);
+  box-shadow: var(--sombra);
+}
+
+.cuenta__resumen {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  margin-bottom: var(--espacio-6);
+  padding-bottom: var(--espacio-6);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cuenta__avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-primario-suave);
+  color: var(--color-primario);
+  font-size: var(--texto-xl);
+  font-weight: 700;
+}
+
+.cuenta__nombre {
+  margin: 0;
+  font-size: var(--texto-lg);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.cuenta__rol {
+  margin: 0;
+  font-size: var(--texto-sm);
+  color: var(--color-texto-suave);
+}
+
+.cuenta__fila {
+  display: grid;
+  gap: 0 var(--espacio-4);
+}
+
+.cuenta__acciones {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--espacio-3);
+}
+
+@media (min-width: 480px) {
+  .cuenta__fila {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cuenta__acciones {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 768px) {
+  .cuenta__tarjeta {
+    padding: var(--espacio-8);
+  }
+}
