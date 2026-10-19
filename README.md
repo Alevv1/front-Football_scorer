@@ -7,7 +7,8 @@ Back: [back-Football_scorer](https://github.com/nicofacen/back-Football_scorer)
 
 ## Diseño
 
-- Figma (style guide, mockup de las 14 pantallas en desktop y mobile, wireflow):
+- Figma (style guide, mockup de las 14 pantallas en desktop y mobile, wireflow con los
+  componentes clave por pantalla y el contrato de datos JSON):
   https://www.figma.com/design/LzEKsANieKnxv9MujFBzt9
 - Export en [`docs/mockup-y-wireflow.pdf`](docs/mockup-y-wireflow.pdf) y una imagen por pantalla en
   [`docs/mockup/`](docs/mockup/)
