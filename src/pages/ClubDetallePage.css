@@ -1,0 +1,67 @@
+
+.club-detalle {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.club-detalle__volver {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--color-primario, #087650);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.club-detalle__volver:hover {
+  text-decoration: underline;
+}
+
+.club-detalle__encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.club-detalle__escudo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.club-detalle__encabezado h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.club-detalle__pais {
+  margin-top: 0.5rem;
+  color: #777;
+  font-size: 1rem;
+}
+
+.club-detalle__productos h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .club-detalle__encabezado {
+    flex-direction: row;
+    text-align: left;
+    padding: 2.5rem;
+  }
+
+  .club-detalle__escudo {
+    width: 150px;
+    height: 150px;
+  }
+}
