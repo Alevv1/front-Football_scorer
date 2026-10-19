@@ -1,0 +1,12 @@
+.ordenes {
+  padding: var(--espacio-6) 0 var(--espacio-12);
+}
+
+.ordenes .data-table {
+  background: var(--color-superficie);
+}
+
+.ordenes__ver {
+  font-weight: 600;
+  white-space: nowrap;
+}

@@ -1,0 +1,31 @@
+{
+  "carritoId": 1,
+  "usuarioId": 2,
+  "items": [
+    {
+      "itemId": 1,
+      "productoId": 1,
+      "nombreProducto": "Camiseta Boca Titular",
+      "precioUnitario": 95000,
+      "cantidad": 1,
+      "subtotal": 95000
+    },
+    {
+      "itemId": 2,
+      "productoId": 8,
+      "nombreProducto": "Pelota Argentina",
+      "precioUnitario": 48000,
+      "cantidad": 2,
+      "subtotal": 96000
+    },
+    {
+      "itemId": 3,
+      "productoId": 13,
+      "nombreProducto": "Medias Real Madrid",
+      "precioUnitario": 22000,
+      "cantidad": 1,
+      "subtotal": 22000
+    }
+  ],
+  "total": 213000
+}
