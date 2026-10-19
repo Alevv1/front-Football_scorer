@@ -1,0 +1,102 @@
+[
+  {
+    "id": 4,
+    "usuarioId": 2,
+    "fecha": "2026-10-13T18:42:13",
+    "estado": "PENDIENTE",
+    "items": [
+      {
+        "itemId": 6,
+        "productoId": 9,
+        "nombreProducto": "Pelota Champions",
+        "precioUnitario": 55000,
+        "cantidad": 1,
+        "subtotal": 55000
+      },
+      {
+        "itemId": 7,
+        "productoId": 15,
+        "nombreProducto": "Mochila Fútbol",
+        "precioUnitario": 65000,
+        "cantidad": 1,
+        "subtotal": 65000
+      },
+      {
+        "itemId": 8,
+        "productoId": 12,
+        "nombreProducto": "Bufanda Barcelona",
+        "precioUnitario": 28000,
+        "cantidad": 1,
+        "subtotal": 28000
+      }
+    ],
+    "total": 148000
+  },
+  {
+    "id": 3,
+    "usuarioId": 2,
+    "fecha": "2026-10-05T16:48:27",
+    "estado": "PAGADA",
+    "items": [
+      {
+        "itemId": 4,
+        "productoId": 2,
+        "nombreProducto": "Camiseta River Titular",
+        "precioUnitario": 95000,
+        "cantidad": 1,
+        "subtotal": 95000
+      },
+      {
+        "itemId": 5,
+        "productoId": 11,
+        "nombreProducto": "Gorra River Plate",
+        "precioUnitario": 32000,
+        "cantidad": 2,
+        "subtotal": 64000
+      }
+    ],
+    "total": 159000
+  },
+  {
+    "id": 2,
+    "usuarioId": 2,
+    "fecha": "2026-09-21T19:03:10",
+    "estado": "CANCELADA",
+    "items": [
+      {
+        "itemId": 3,
+        "productoId": 7,
+        "nombreProducto": "Botines Mercurial",
+        "precioUnitario": 170000,
+        "cantidad": 1,
+        "subtotal": 170000
+      }
+    ],
+    "total": 170000
+  },
+  {
+    "id": 1,
+    "usuarioId": 2,
+    "fecha": "2026-09-02T10:15:42",
+    "estado": "ENVIADA",
+    "items": [
+      {
+        "itemId": 1,
+        "productoId": 3,
+        "nombreProducto": "Camiseta Argentina Titular",
+        "precioUnitario": 110000,
+        "cantidad": 1,
+        "subtotal": 110000
+      },
+      {
+        "itemId": 2,
+        "productoId": 14,
+        "nombreProducto": "Short Argentina",
+        "precioUnitario": 58000,
+        "cantidad": 1,
+        "subtotal": 58000
+      }
+    ],
+    "total": 168000
+  }
+]

@@ -75,3 +75,20 @@ export async function obtenerProducto(id) {
   }
   return structuredClone(producto);
 }
+
+export async function descontarStock(id, cantidad) {
+  const producto = (await cargarProductos()).find((p) => p.id === Number(id) && p.activo);
+  if (!producto) {
+    throw noEncontrado(`Producto ${id} no encontrado`, `/api/productos/${id}`);
+  }
+  if (cantidad > producto.stock) {
+    throw {
+      timestamp: new Date().toISOString().slice(0, 19),
+      status: 400,
+      error: 'Bad Request',
+      mensaje: `Stock insuficiente para ${producto.nombre}: disponible ${producto.stock}, pedido ${cantidad}`,
+      path: '/api/ordenes',
+    };
+  }
+  producto.stock -= cantidad;
+}
