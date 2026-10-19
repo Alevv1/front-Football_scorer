@@ -1,0 +1,18 @@
+.producto-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-3);
+}
+
+.producto-form__fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-3);
+}
+
+.producto-form__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-2);
+}
