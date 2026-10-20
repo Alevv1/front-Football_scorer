@@ -1,0 +1,6 @@
+.favoritos { padding: var(--espacio-6) 0 var(--espacio-12); }
+.favoritos__cabecera { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--espacio-3); flex-wrap: wrap; margin-bottom: var(--espacio-6); }
+.favoritos__cabecera h1 { margin: 0; }
+.favoritos__cantidad { color: var(--color-texto-suave); margin: var(--espacio-2) 0 0; }
+.favoritos__ir-catalogo { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: var(--espacio-2) var(--espacio-4); border-radius: var(--radio); background: var(--color-primario); color: white; font-weight: 600; text-decoration: none; }
+.favoritos__ir-catalogo:hover { background: var(--color-primario-hover); }

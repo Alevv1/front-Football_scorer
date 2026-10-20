@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camiseta Boca Titular",
+    "descripcion": "Camiseta oficial de Boca Juniors",
+    "precio": 95000,
+    "stock": 10,
+    "imagenUrl": "/img/productos/camiseta-boca-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 1,
+      "nombre": "Boca Juniors",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/boca-juniors.svg"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Camiseta Argentina Titular",
+    "descripcion": "Camiseta de la Selección Argentina",
+    "precio": 110000,
+    "stock": 15,
+    "imagenUrl": "/img/productos/camiseta-argentina-titular.svg",
+    "activo": true,
+    "club": {
+      "id": 3,
+      "nombre": "Argentina",
+      "pais": "Argentina",
+      "escudoUrl": "/img/escudos/argentina.svg"
+    }
+  }
+]

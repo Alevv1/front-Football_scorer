@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { obtenerProducto } from '../services/productosService';
+import FavoritoButton from '../components/productos/FavoritoButton';
 import { formatearPrecio } from '../utils/formato';
 import Spinner from '../components/ui/Spinner';
 import ErrorMessage from '../components/ui/ErrorMessage';
@@ -91,6 +92,7 @@ export default function ProductoDetallePage() {
           )}
 
           <h1>{producto.nombre}</h1>
+          <FavoritoButton productoId={producto.id} texto />
 
           <p className="producto-detalle__precio">
             {formatearPrecio(producto.precio)}
