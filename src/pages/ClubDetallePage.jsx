@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ProductGrid from '../components/productos/ProductGrid';
+import FavoritoButton from '../components/productos/FavoritoButton';
 import Spinner from '../components/ui/Spinner';
 import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
@@ -91,7 +92,7 @@ export default function ClubDetallePage() {
             mensaje="Este club todavía no tiene productos disponibles."
           />
         ) : (
-          <ProductGrid productos={productos} />
+          <ProductGrid productos={productos} renderAccion={(producto) => <FavoritoButton productoId={producto.id} />} />
         )}
       </div>
     </section>

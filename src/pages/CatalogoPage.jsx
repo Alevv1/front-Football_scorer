@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import FiltrosCatalogo from '../components/productos/FiltrosCatalogo';
 import ProductGrid from '../components/productos/ProductGrid';
+import FavoritoButton from '../components/productos/FavoritoButton';
 import Button from '../components/ui/Button';
 import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
@@ -97,7 +98,7 @@ export default function CatalogoPage() {
       <EmptyState titulo="Todavía no hay productos" mensaje="Volvé a pasar en unos días." />
     );
   } else {
-    contenido = <ProductGrid productos={productos} />;
+    contenido = <ProductGrid productos={productos} renderAccion={(producto) => <FavoritoButton productoId={producto.id} />} />;
   }
 
   return (
