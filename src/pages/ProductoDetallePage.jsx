@@ -6,6 +6,7 @@ import FavoritoButton from '../components/productos/FavoritoButton';
 import { formatearPrecio } from '../utils/formato';
 import Spinner from '../components/ui/Spinner';
 import ErrorMessage from '../components/ui/ErrorMessage';
+import AgregarAlCarrito from '../components/productos/AgregarAlCarrito';
 import './ProductoDetallePage.css';
 
 const SIN_IMAGEN = '/img/productos/sin-imagen.svg';
@@ -102,11 +103,13 @@ export default function ProductoDetallePage() {
             {producto.descripcion}
           </p>
 
-          <p className={
-            sinStock
-              ? 'producto-detalle__stock producto-detalle__stock--agotado'
-              : 'producto-detalle__stock'
-          }>
+          <p
+            className={
+              sinStock
+                ? 'producto-detalle__stock producto-detalle__stock--agotado'
+                : 'producto-detalle__stock'
+            }
+          >
             {sinStock
               ? 'Sin stock disponible'
               : `Stock disponible: ${producto.stock}`}
@@ -134,19 +137,10 @@ export default function ProductoDetallePage() {
               }}
             />
 
-            <button
-              type="button"
-              className="producto-detalle__boton"
-              disabled
-              title="Disponible cuando se integre el carrito"
-            >
-              {sinStock ? 'Sin stock' : 'Agregar al carrito (pendiente)'}
-            </button>
-
-            <p className="producto-detalle__aviso">
-              El carrito y los favoritos se integrarán cuando estén
-              disponibles los componentes del equipo.
-            </p>
+            <AgregarAlCarrito
+              producto={producto}
+              cantidad={cantidad}
+            />
           </div>
         </div>
       </div>
