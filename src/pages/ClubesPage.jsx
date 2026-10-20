@@ -3,7 +3,7 @@ import ClubCard from '../components/clubes/ClubCard';
 import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Spinner from '../components/ui/Spinner';
-import { listarClubes } from '../services/catalogoService';
+import { listarClubesApi } from '../services/apiService';
 import './ClubesPage.css';
 
 export default function ClubesPage() {
@@ -17,7 +17,7 @@ export default function ClubesPage() {
     setClubes(null);
     setError(null);
 
-    listarClubes(pais)
+    listarClubesApi(pais)
       .then((lista) => vigente && setClubes(lista))
       .catch((err) => vigente && setError(err));
 

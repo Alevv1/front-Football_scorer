@@ -6,8 +6,7 @@ import FavoritoButton from '../components/productos/FavoritoButton';
 import Spinner from '../components/ui/Spinner';
 import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
-import { obtenerClub } from '../services/catalogoService';
-import { listarProductos } from '../services/productosService';
+import { obtenerClubApi, listarProductosApi } from '../services/apiService';
 import './ClubDetallePage.css';
 
 export default function ClubDetallePage() {
@@ -27,8 +26,8 @@ export default function ClubDetallePage() {
     setProductos([]);
 
     Promise.all([
-      obtenerClub(id),
-      listarProductos({ clubId: id }),
+      obtenerClubApi(id),
+      listarProductosApi({ clubId: id }),
     ])
       .then(([datosClub, listaProductos]) => {
         if (!vigente) return;
