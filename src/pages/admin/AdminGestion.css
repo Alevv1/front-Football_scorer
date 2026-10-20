@@ -1,0 +1,23 @@
+.admin-gestion { min-width: 0; padding-bottom: var(--espacio-8); }
+.admin-gestion__encabezado { display: flex; gap: var(--espacio-3); flex-wrap: wrap; align-items: flex-start; justify-content: space-between; margin-bottom: var(--espacio-4); }
+.admin-gestion__encabezado h1 { margin-bottom: var(--espacio-2); }
+.admin-gestion__encabezado p { margin: 0; color: var(--color-texto-suave); font-size: var(--texto-sm); }
+.admin-gestion__etiqueta-busqueda { display: block; margin-bottom: var(--espacio-2); font-weight: 600; font-size: var(--texto-sm); }
+.admin-gestion__buscador { display: block; max-width: 400px; width: 100%; min-height: 44px; border: 1px solid var(--color-borde); border-radius: var(--radio); background: var(--color-superficie); padding: var(--espacio-2) var(--espacio-3); margin-bottom: var(--espacio-4); }
+.admin-gestion .data-table { background: transparent; }
+.admin-gestion .data-table td { overflow-wrap: anywhere; }
+.admin-gestion__acciones { display: flex; gap: var(--espacio-2); flex-wrap: wrap; justify-content: flex-end; }
+.admin-gestion__escudo { width: 42px; height: 42px; object-fit: contain; }
+.admin-gestion__sin-imagen { font-size: var(--texto-xs); color: var(--color-texto-suave); }
+/* Estilos base para mobile (la DataTable de Mati muestra cards). */
+.admin-gestion__encabezado .boton { width: 100%; }
+.admin-gestion .data-table tbody tr { background: var(--color-superficie); }
+.admin-gestion .data-table tbody td { min-width: 0; gap: var(--espacio-2); }
+.admin-gestion .data-table tbody td::before { flex: 0 0 35%; }
+
+/* En desktop se conserva la presentacion de tabla. */
+@media (min-width: 768px) {
+  .admin-gestion__encabezado .boton { width: auto; }
+  .admin-gestion .data-table { background: var(--color-superficie); }
+  .admin-gestion .data-table tbody tr { background: transparent; }
+}
