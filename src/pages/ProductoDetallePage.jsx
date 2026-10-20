@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { obtenerProducto } from '../services/productosService';
+import { obtenerProductoApi } from '../services/apiService';
 import FavoritoButton from '../components/productos/FavoritoButton';
 import { formatearPrecio } from '../utils/formato';
 import Spinner from '../components/ui/Spinner';
@@ -28,7 +28,7 @@ export default function ProductoDetallePage() {
     setProducto(null);
     setCantidad(1);
 
-    obtenerProducto(id)
+    obtenerProductoApi(id)
       .then((datos) => {
         if (vigente) setProducto(datos);
       })

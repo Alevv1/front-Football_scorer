@@ -8,8 +8,8 @@ import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Spinner from '../components/ui/Spinner';
 import { useDebounce } from '../hooks/useDebounce';
-import { listarCategorias, listarClubes } from '../services/catalogoService';
-import { listarProductos } from '../services/productosService';
+import { listarCategoriasApi, listarClubesApi } from '../services/apiService';
+import { listarProductosApi } from '../services/apiService';
 import './CatalogoPage.css';
 
 const CLAVES_FILTRO = ['nombre', 'clubId', 'categoriaId', 'precioMax'];
@@ -35,10 +35,10 @@ export default function CatalogoPage() {
   useEffect(() => {
     let vigente = true;
     // Si fallan, los selects quedan solo con "Todos": el catálogo se puede usar igual.
-    listarClubes()
+    listarClubesApi()
       .then((lista) => vigente && setClubes(lista))
       .catch(() => {});
-    listarCategorias()
+    listarCategoriasApi()
       .then((lista) => vigente && setCategorias(lista))
       .catch(() => {});
     return () => {
@@ -51,7 +51,7 @@ export default function CatalogoPage() {
     setCargando(true);
     setError(null);
 
-    listarProductos(leerFiltros(new URLSearchParams(consulta)))
+    listarProductosApi(leerFiltros(new URLSearchParams(consulta)))
       .then((lista) => vigente && setProductos(lista))
       .catch((err) => vigente && setError(err))
       .finally(() => vigente && setCargando(false));
