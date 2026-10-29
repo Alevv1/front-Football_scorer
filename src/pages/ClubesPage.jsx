@@ -1,30 +1,21 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ClubCard from '../components/clubes/ClubCard';
 import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Spinner from '../components/ui/Spinner';
-import { listarClubesApi } from '../services/apiService';
+import { cargarClubes, seleccionarClubes } from '../store/slices/clubesSlice';
 import './ClubesPage.css';
 
 export default function ClubesPage() {
-  const [clubes, setClubes] = useState(null);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { lista: clubes, error } = useSelector(seleccionarClubes);
   const [intento, setIntento] = useState(0);
   const [pais, setPais] = useState('');
 
   useEffect(() => {
-    let vigente = true;
-    setClubes(null);
-    setError(null);
-
-    listarClubesApi(pais)
-      .then((lista) => vigente && setClubes(lista))
-      .catch((err) => vigente && setError(err));
-
-    return () => {
-      vigente = false;
-    };
-  }, [pais, intento]);
+    dispatch(cargarClubes(pais));
+  }, [pais, intento, dispatch]);
 
   let contenido;
   if (error) {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import FiltrosCatalogo from '../components/productos/FiltrosCatalogo';
 import ProductGrid from '../components/productos/ProductGrid';
@@ -8,8 +9,8 @@ import EmptyState from '../components/ui/EmptyState';
 import ErrorMessage from '../components/ui/ErrorMessage';
 import Spinner from '../components/ui/Spinner';
 import { useDebounce } from '../hooks/useDebounce';
-import { listarCategoriasApi, listarClubesApi } from '../services/apiService';
-import { listarProductosApi } from '../services/apiService';
+import { listarClubesApi } from '../services/apiService';
+import { cargarCategorias, cargarProductos, seleccionarProductos } from '../store/slices/productosSlice';
 import './CatalogoPage.css';
 
 const CLAVES_FILTRO = ['nombre', 'clubId', 'categoriaId', 'precioMax'];
@@ -25,11 +26,10 @@ export default function CatalogoPage() {
   const filtros = leerFiltros(searchParams);
   const consulta = useDebounce(searchParams.toString(), 300);
 
+  const dispatch = useDispatch();
+  const { lista: productos, categorias, cargando, error } = useSelector(seleccionarProductos);
+
   const [clubes, setClubes] = useState([]);
-  const [categorias, setCategorias] = useState([]);
-  const [productos, setProductos] = useState(null);
-  const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(null);
   const [intento, setIntento] = useState(0);
 
   useEffect(() => {
@@ -38,28 +38,15 @@ export default function CatalogoPage() {
     listarClubesApi()
       .then((lista) => vigente && setClubes(lista))
       .catch(() => {});
-    listarCategoriasApi()
-      .then((lista) => vigente && setCategorias(lista))
-      .catch(() => {});
+    dispatch(cargarCategorias());
     return () => {
       vigente = false;
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    let vigente = true;
-    setCargando(true);
-    setError(null);
-
-    listarProductosApi(leerFiltros(new URLSearchParams(consulta)))
-      .then((lista) => vigente && setProductos(lista))
-      .catch((err) => vigente && setError(err))
-      .finally(() => vigente && setCargando(false));
-
-    return () => {
-      vigente = false;
-    };
-  }, [consulta, intento]);
+    dispatch(cargarProductos(leerFiltros(new URLSearchParams(consulta))));
+  }, [consulta, intento, dispatch]);
 
   const cambiarFiltro = (clave, valor) => {
     setSearchParams(
