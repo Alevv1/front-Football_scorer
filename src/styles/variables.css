@@ -43,3 +43,30 @@
   --ancho-maximo: 1200px;
   --alto-navbar: 64px;
 }
+
+/* Tema oscuro: AplicarTema pone data-tema en <html> según la preferencia guardada. */
+:root[data-tema='oscuro'] {
+  color-scheme: dark;
+
+  --color-primario: #2e9e76;
+  --color-primario-hover: #3bb88b;
+  --color-primario-suave: #15372b;
+
+  --color-fondo: #0f1317;
+  --color-superficie: #1a2027;
+  --color-borde: #2f3842;
+  --color-texto: #e6e9ed;
+  --color-texto-suave: #9aa5b1;
+
+  --color-exito: #4cc272;
+  --color-exito-suave: #143222;
+  --color-error: #f0706b;
+  --color-error-suave: #3a1a1a;
+  --color-aviso: #f0b252;
+  --color-aviso-suave: #3a2a12;
+  --color-info: #6aa8f0;
+  --color-info-suave: #14263d;
+
+  --sombra: 0 1px 3px rgb(0 0 0 / 0.5), 0 1px 2px rgb(0 0 0 / 0.3);
+  --sombra-lg: 0 8px 24px rgb(0 0 0 / 0.6);
+}

@@ -26,7 +26,7 @@ function validar({ nombre, apellido, email }) {
 
 export default function CuentaPage() {
   // PrivateRoute garantiza que hay usuario logueado.
-  const { usuario, token, iniciarSesion } = useAuth();
+  const { usuario, actualizarUsuarioSesion } = useAuth();
   const { id, rol } = usuario;
 
   const [datos, setDatos] = useState(null);
@@ -104,7 +104,7 @@ export default function CuentaPage() {
       // Mismo token, usuario nuevo: así el "Hola, ..." del navbar se actualiza.
       // OJO con el back real: el JWT tiene el email adentro, así que si cambia el email el token
       // deja de servir y hay que volver a loguearse.
-      iniciarSesion({ token, tipo: 'Bearer' }, actualizado);
+      actualizarUsuarioSesion(actualizado);
     } catch (error) {
       setErrorGuardado(error);
     } finally {

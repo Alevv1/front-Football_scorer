@@ -28,7 +28,19 @@ La app queda en http://localhost:5173.
 
 - React + Vite
 - React Router
+- Redux Toolkit + redux-persist
 - CSS
+
+## Persistencia y seguridad
+
+- El tema claro/oscuro se guarda en `localStorage`.
+- La sesión (token) se guarda en `sessionStorage` con redux-persist: sobrevive a un F5 y se
+  borra al cerrar la pestaña o cuando vence el token.
+- El build incluye una Content-Security-Policy contra XSS. Para probarla: `npm run build` y
+  `npm run preview`.
+
+El análisis de las opciones, la decisión y las mitigaciones están en
+[`docs/persistencia-y-seguridad.md`](docs/persistencia-y-seguridad.md).
 
 ## Datos
 
@@ -48,6 +60,7 @@ src/
   pages/         Una página por pantalla
   routes/        Rutas protegidas
   services/      Acceso a los datos
+  store/         Redux: slices y persistencia
   styles/        Estilos globales
   utils/         Funciones de formato
 ```
