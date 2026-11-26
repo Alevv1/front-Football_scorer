@@ -13,7 +13,7 @@ function politicaDeSeguridad(origenApi) {
     'style-src': ["'self'"],
     'img-src': ["'self'", 'data:', 'https:'],
     'font-src': ["'self'"],
-    'connect-src': ["'self'", origenApi],
+    'connect-src': ["'self'", ...(origenApi ? [origenApi] : [])],
     'object-src': ["'none'"],
     'base-uri': ["'self'"],
     'form-action': ["'self'"],
@@ -31,11 +31,20 @@ function politicaDeSeguridad(origenApi) {
   }
 }
 
+// El front llama a /api en su propio origen y Vite lo reenvía al back. Así el navegador nunca
+// hace una request a otro origen y no hace falta configurar CORS en el back.
+const proxyApi = {
+  '/api': { target: 'http://localhost:8080', changeOrigin: true },
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_')
-  const origenApi = new URL(env.VITE_API_URL ?? 'http://localhost:8080/api').origin
+  // Solo si se configura una API en otro origen (VITE_API_URL absoluta) hay que permitirla en la CSP.
+  const origenApi = /^https?:\/\//.test(env.VITE_API_URL ?? '') ? new URL(env.VITE_API_URL).origin : null
 
   return {
     plugins: [react(), politicaDeSeguridad(origenApi)],
+    server: { proxy: proxyApi },
+    preview: { proxy: proxyApi },
   }
 })

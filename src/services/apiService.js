@@ -1,6 +1,8 @@
 // Lecturas contra el back real (Spring Boot). El resto de los services sigue con los JSON de
 // public/data/ hasta que se conecten el login, el carrito y el panel admin.
-const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080/api';
+// Por defecto '/api' en el mismo origen del front: Vite lo reenvía al back (ver vite.config.js),
+// así el navegador no hace requests a otro origen y no hace falta CORS.
+const API_URL = import.meta.env.VITE_API_URL ?? '/api';
 
 async function apiGet(ruta, params = {}) {
   const query = new URLSearchParams();
