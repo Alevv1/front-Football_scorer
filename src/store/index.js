@@ -1,9 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+import {
+  createTransform,
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist';
 import storageLocal from 'redux-persist/lib/storage';
 import storageSession from 'redux-persist/lib/storage/session';
 import { establecerUsuarioActual } from '../services/sesionActual';
-import authReducer, { CLAVE_STORAGE_ANTERIOR, seleccionarUsuario } from './slices/authSlice';
+import authReducer, { CLAVE_STORAGE_ANTERIOR, seleccionarUsuario, sesionVigente } from './slices/authSlice';
 import carritoReducer from './slices/carritoSlice';
 import clubesReducer from './slices/clubesSlice';
 import preferenciasReducer from './slices/preferenciasSlice';
@@ -17,8 +27,22 @@ const preferenciasPersistidas = persistReducer(
 
 // Sesión (token + datos básicos del usuario): sessionStorage. Sobrevive a un F5 pero se
 // borra al cerrar la pestaña, y no la comparten otras pestañas. Ver docs/persistencia-y-seguridad.md.
+// Al recuperar la sesión guardada se descarta si el token venció o si fue alterada y le falta
+// algo: mejor pedir login de nuevo que usar un token que el back va a rechazar.
+const descartarSesionVencida = createTransform(
+  (sesion) => sesion,
+  (sesion) => (sesionVigente(sesion) ? sesion : null),
+  { whitelist: ['sesion'] },
+);
+
 const authPersistido = persistReducer(
-  { key: 'auth', version: 1, storage: storageSession, whitelist: ['sesion'] },
+  {
+    key: 'auth',
+    version: 1,
+    storage: storageSession,
+    whitelist: ['sesion'],
+    transforms: [descartarSesionVencida],
+  },
   authReducer,
 );
 
