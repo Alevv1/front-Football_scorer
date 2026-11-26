@@ -30,7 +30,8 @@
   margin-left: auto;
 }
 
-.navbar__hamburguesa {
+.navbar__hamburguesa,
+.navbar__boton-icono {
   display: inline-flex;
   align-items: center;
   justify-content: center;

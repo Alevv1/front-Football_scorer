@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
-import { IconoCarrito, IconoCerrar, IconoCorazon, IconoMenu } from './Iconos';
+import { useTema } from '../../hooks/useTema';
+import { IconoCarrito, IconoCerrar, IconoCorazon, IconoLuna, IconoMenu, IconoSol } from './Iconos';
 import './Navbar.css';
 
 const claseLink = ({ isActive }) => `navbar__link ${isActive ? 'navbar__link--activo' : ''}`;
 
 export default function Navbar() {
   const { usuario, estaLogueado, esAdmin, cerrarSesion } = useAuth();
+  const { tema, alternarTema } = useTema();
   const [menuAbierto, setMenuAbierto] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +39,15 @@ export default function Navbar() {
           <NavLink to="/carrito" className={claseLink} aria-label="Carrito">
             <IconoCarrito />
           </NavLink>
+          <button
+            type="button"
+            className="navbar__boton-icono"
+            onClick={alternarTema}
+            aria-label={tema === 'oscuro' ? 'Usar tema claro' : 'Usar tema oscuro'}
+            title={tema === 'oscuro' ? 'Usar tema claro' : 'Usar tema oscuro'}
+          >
+            {tema === 'oscuro' ? <IconoSol /> : <IconoLuna />}
+          </button>
           <button
             type="button"
             className="navbar__hamburguesa"
