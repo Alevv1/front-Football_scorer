@@ -42,7 +42,9 @@ const catalogoModulo = cache.get(path.join(raiz, 'src/services/catalogoService.j
 const favoritos = favoritosModulo.namespace;
 const catalogo = catalogoModulo.namespace;
 
-const sesion = (id) => storage.set('sesion', JSON.stringify({ usuario: { id, email: `prueba-${id}@mail.com` } }));
+const sesionActual = cache.get(path.join(raiz, 'src/services/sesionActual.js')).namespace;
+const sesion = (id) =>
+  sesionActual.establecerUsuarioActual(id == null ? null : { id, email: `prueba-${id}@mail.com` });
 const fallaCon = async (promesa, status) => assert.rejects(promesa, (error) => error.status === status);
 
 test('favoritos.json son ProductoResponse válidos y referencian productos reales', async () => {
@@ -61,6 +63,7 @@ test('favoritos.json son ProductoResponse válidos y referencian productos reale
 
 test('favoritos: requiere login, lista, agrega, elimina y respeta duplicados y sesiones', async () => {
   storage.clear();
+  sesion(null);
   await fallaCon(favoritos.listar(), 401);
   sesion(2);
   const inicial = await favoritos.listar();

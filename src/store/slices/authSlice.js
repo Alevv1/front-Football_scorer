@@ -1,24 +1,17 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
 
-export const CLAVE_STORAGE = 'sesion';
+// Donde se guardaba la sesión antes de redux-persist. Solo se usa para borrarla.
+export const CLAVE_STORAGE_ANTERIOR = 'sesion';
 
 const USUARIOS_SIMULADOS = {
   CLIENTE: { id: 2, nombre: 'Juan', apellido: 'Pérez', email: 'juan@mail.com', rol: 'CLIENTE' },
   ADMIN: { id: 1, nombre: 'Admin', apellido: 'Tienda', email: 'admin@mail.com', rol: 'ADMIN' },
 };
 
-function leerSesionGuardada() {
-  try {
-    const guardada = localStorage.getItem(CLAVE_STORAGE);
-    return guardada ? JSON.parse(guardada) : null;
-  } catch {
-    return null;
-  }
-}
-
+// La sesión guardada la recupera redux-persist desde sessionStorage (ver store/index.js).
 const authSlice = createSlice({
   name: 'auth',
-  initialState: { sesion: leerSesionGuardada() },
+  initialState: { sesion: null },
   reducers: {
     iniciarSesion: {
       reducer(state, action) {

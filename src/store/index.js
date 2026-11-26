@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import storageLocal from 'redux-persist/lib/storage';
-import authReducer, { CLAVE_STORAGE } from './slices/authSlice';
+import storageSession from 'redux-persist/lib/storage/session';
+import { establecerUsuarioActual } from '../services/sesionActual';
+import authReducer, { CLAVE_STORAGE_ANTERIOR, seleccionarUsuario } from './slices/authSlice';
 import carritoReducer from './slices/carritoSlice';
 import clubesReducer from './slices/clubesSlice';
 import preferenciasReducer from './slices/preferenciasSlice';
@@ -13,9 +15,16 @@ const preferenciasPersistidas = persistReducer(
   preferenciasReducer,
 );
 
+// Sesión (token + datos básicos del usuario): sessionStorage. Sobrevive a un F5 pero se
+// borra al cerrar la pestaña, y no la comparten otras pestañas. Ver docs/persistencia-y-seguridad.md.
+const authPersistido = persistReducer(
+  { key: 'auth', version: 1, storage: storageSession, whitelist: ['sesion'] },
+  authReducer,
+);
+
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
+    auth: authPersistido,
     carrito: carritoReducer,
     productos: productosReducer,
     clubes: clubesReducer,
@@ -30,16 +39,19 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-// La sesión sobrevive a un F5: se persiste cada vez que cambia.
-let sesionPrevia = store.getState().auth.sesion;
+// Antes la sesión (con el token) se guardaba a mano en localStorage: se borra para que no
+// quede un token viejo olvidado ahí.
+try {
+  localStorage.removeItem(CLAVE_STORAGE_ANTERIOR);
+} catch {
+  // Sin acceso al storage no hay nada que limpiar.
+}
+
+// Los services simulados preguntan "quién está logueado" acá, no al storage.
+let usuarioPrevio;
 store.subscribe(() => {
-  const sesion = store.getState().auth.sesion;
-  if (sesion === sesionPrevia) return;
-  sesionPrevia = sesion;
-  try {
-    if (sesion) localStorage.setItem(CLAVE_STORAGE, JSON.stringify(sesion));
-    else localStorage.removeItem(CLAVE_STORAGE);
-  } catch {
-    // Sin storage disponible la sesión dura lo que dure la pestaña.
-  }
+  const usuario = seleccionarUsuario(store.getState());
+  if (usuario === usuarioPrevio) return;
+  usuarioPrevio = usuario;
+  establecerUsuarioActual(usuario);
 });

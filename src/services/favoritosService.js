@@ -1,5 +1,6 @@
 import { obtenerJson, simularRespuesta } from './http';
 import { listarProductos, obtenerProducto } from './productosService';
+import { obtenerUsuarioActual } from './sesionActual';
 
 // Mock de GET/POST/DELETE /api/favoritos. Cada sesión simulada tiene su propia lista
 // en memoria; al recargar se reponen los datos de ejemplo de favoritos.json.
@@ -33,13 +34,8 @@ function errorResponse(status, error, mensaje, path) {
 }
 
 function usuarioActual() {
-  let sesion = null;
-  try {
-    sesion = JSON.parse(localStorage.getItem('sesion') || 'null');
-  } catch {
-    // Sesión dañada: se maneja igual que si no se hubiera iniciado sesión.
-  }
-  const identificador = sesion?.usuario?.id ?? sesion?.usuario?.email;
+  const usuario = obtenerUsuarioActual();
+  const identificador = usuario?.id ?? usuario?.email;
   if (identificador == null) {
     throw errorResponse(401, 'Unauthorized', 'Tenés que iniciar sesión', '/api/favoritos');
   }
